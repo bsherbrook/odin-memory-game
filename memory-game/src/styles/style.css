@@ -1,4 +1,31 @@
 html{
     color: white;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 250px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.catPic{
+    height: 200px;
+}
+#cardContainer{
+    background-color: darkblue;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
