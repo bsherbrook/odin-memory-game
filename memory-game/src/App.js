@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ScoreBoard from './components/ScoreBoard';
 import './styles/style.css';
 import Board from './components/DisplayBoard';
+import IsGameOver from './components/GameOver'
 
 function App() {
   const [score, setScore]= useState(0);
@@ -21,6 +22,15 @@ function App() {
       }
     }
   };
+  const restartGame = () => {
+    setScore(0);
+    setGameOver(false);
+  };
+
+  const handleWin = () => {
+    setScore(0);
+    setBestCore(0);
+  };
   const handleGameOver = () => {
     setGameOver(true);
   };
@@ -34,11 +44,17 @@ function App() {
         score ={score}
         bestScore= {bestScore}
       />
-      <Board 
+      {!gameOver && bestScore < 21 && (<Board 
         incrementScore={incrementScore}
         setGameOver= {handleGameOver}
         gameOver= {gameOver}
-      />
+        />
+      )}
+      {gameOver && bestScore < 21 && (<IsGameOver
+          restartGame={restartGame}
+          
+        />
+      )}  
     </div>
   );
 }

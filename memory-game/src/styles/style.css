@@ -5,6 +5,10 @@ html{
     justify-content: center;
     align-items: center;
 }
+#scoreBoard{
+    display: flex;
+    justify-content: space-around;
+}
 .card{
     background-color: aqua;
     display: flex;
@@ -21,6 +25,9 @@ html{
 .catPic{
     height: 200px;
 }
+.catPic:hover{
+    cursor: pointer;
+}
 #cardContainer{
     background-color: darkblue;
     display: flex;
@@ -28,4 +35,7 @@ html{
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+#gameOverCat{
+    height: 600px;
 }

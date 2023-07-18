@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import catArray from "./imageRepo";
-// import Card from './Card';
-const Card = React.lazy(() => import('./Card'));
+import Card from './Card';
+//const Card = React.lazy(() => import('./Card'));
 
 function Board(props) {
   //const [clickedElements, setClickedElements] = useState([]);
@@ -13,9 +13,7 @@ function Board(props) {
 //   const cleanClickedElements = () => {
 //     setClickedElements([]);
 //   };
-  //catArray = _.shuffle(catArray);
   const shuffledArray = catArray.slice();
- 
   let n = shuffledArray.length;
   while (n > 0) {
     const randomIndex = Math.floor(Math.random() * n);
