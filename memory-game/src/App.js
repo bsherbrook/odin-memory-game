@@ -5,12 +5,10 @@ import './styles/style.css';
 
 function App() {
   const [score, setScore]= useState(0);
-
-  const incrementScore = () =>{
-    setScore(score + 1);
-  };
-  const clickArray=[];
-  const catArray=[
+  //const [bestScore, setBestCore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+  const [clickArray, setClickArray] = useState([]);
+  const [catArray, setCatArray] = useState([
     "./img/Abyssinian.jpg","./img/Balinese.jpg",
     "./img/Bengal.jpg","./img/Bombay.jpg",
     "./img/British-Shorthair.jpg","./img/Calico.jpg",
@@ -20,7 +18,12 @@ function App() {
     "./img/Persian.jpg","./img/Ragdoll.jpg","./img/Scottish-Fold.jpg",
     "./img/Siamese.jpg","./img/Siberian.jpg","./img/Sphynx.jpg",
     "./img/Tabby-Cat.jpg","./img/Torty.jpg","./img/Turkish-Angora.jpg"
-  ];
+  ]);
+
+  const incrementScore = () => {
+    setScore(score + 1);
+  };
+
   function displayCats(){
     const cardContainer= document.getElementById('cardContainer');
     cardContainer.innerHTML='';
@@ -75,18 +78,23 @@ function App() {
       console.log(clickArray);
    }
   }
+  const handleGameOver = () => {
+    setGameOver(true);
+  };
+  // useEffect(() => {
+  //   incrementBestScore();
+  // }, [score]);
 
   return (
     <div className="App">
       <ScoreBoard 
         score ={score}
-        setScore= {setScore}
-        incrementScore= {incrementScore}
-        displayCats={displayCats}
+        //bestScore= {bestScore}
       />
       <CatCard
         displayCats={displayCats}
         catArray={catArray}
+        handleGameOver={handleGameOver}
       />
     </div>
   );
