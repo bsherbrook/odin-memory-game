@@ -8,8 +8,6 @@ const Card = (props) => {
       props.setGameOver();
     } else {
       setIsClicked(true);
-      //const elemObj = { name: props.name };
-      //props.handleClickedElements(elemObj);
       props.incrementScore();
     }
   };

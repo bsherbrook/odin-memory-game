@@ -27,7 +27,6 @@ function App() {
     setScore(0);
     setGameOver(false);
   };
-
   const handleWin = () => {
     setScore(0);
     setBestCore(0);

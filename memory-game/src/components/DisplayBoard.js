@@ -4,15 +4,6 @@ import Card from './Card';
 //const Card = React.lazy(() => import('./Card'));
 
 function Board(props) {
-  //const [clickedElements, setClickedElements] = useState([]);
-  //const catArray= imgArray.map((arr) => arr.slice());
-//   const handleClickedElements = (elem) => {
-//     setClickedElements(clickedElements.concat(elem));
-//   };
-
-//   const cleanClickedElements = () => {
-//     setClickedElements([]);
-//   };
   const shuffledArray = catArray.slice();
   let n = shuffledArray.length;
   while (n > 0) {
@@ -24,7 +15,6 @@ function Board(props) {
     return (
       <Card
         key={obj.text}
-        //handleClickedElements={handleClickedElements}
         incrementScore={props.incrementScore}
         setGameOver={props.setGameOver}
         url={obj.image}
