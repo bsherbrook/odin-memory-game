@@ -39,3 +39,16 @@ html{
 #gameOverCat{
     height: 600px;
 }
+#endGameText{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#endGameButton{
+    font-size: 20px;
+    border-radius: 25px;
+    height: 35px;
+}
+button:hover{
+    cursor: pointer;
+}

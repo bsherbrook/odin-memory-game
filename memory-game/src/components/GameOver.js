@@ -1,4 +1,3 @@
-import happyCat from '../img/happy-cat.jpg'
 import badCat from '../img/bad-cat.jpg'
 
 function isGameOver(props){
@@ -9,8 +8,10 @@ function isGameOver(props){
             id='gameOverCat'
             alt='Scary kitty says game over'
             />
-            <h1>Game Over You Lose!</h1>
-            <button onClick={props.restartGame}>Try Again?</button>
+            <div id='endGameText'>
+                <h1>Game Over You Lose!</h1>
+                <button id='endGameButton' onClick={props.restartGame}>Try Again?</button>
+            </div>
         </div>
     )
 }
