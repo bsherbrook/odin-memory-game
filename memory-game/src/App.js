@@ -4,12 +4,13 @@ import './styles/style.css';
 import Board from './components/DisplayBoard';
 import IsGameOver from './components/GameOver';
 import WinGame from './components/WinGame';
+import Loading from './components/Loading'
 
 function App() {
   const [score, setScore]= useState(0);
   const [bestScore, setBestCore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-
+  const [load, setLoad] = useState(false);
   const incrementScore = () => {
     setScore(score + 1);
   };
@@ -23,17 +24,24 @@ function App() {
       }
     }
   };
+
   const restartGame = () => {
     setScore(0);
     setGameOver(false);
+    incrementLoad();
   };
   const handleWin = () => {
     setScore(0);
     setBestCore(0);
+    incrementLoad();
   };
   const handleGameOver = () => {
     setGameOver(true);
   };
+  const incrementLoad = () => {
+    if(load===true){setLoad(false)}
+    else setLoad(true)
+  }
   useEffect(() => {
     incrementBestScore();
   }, [score]);
@@ -44,7 +52,13 @@ function App() {
         score ={score}
         bestScore= {bestScore}
       />
-      {!gameOver && bestScore < 21 && (<Board 
+      {load===false && (<Loading
+        load={load}
+        setLoad={setLoad}
+        incrementLoad={incrementLoad}
+        />
+      )}
+      {!gameOver && bestScore < 21 && load===true &&(<Board 
         incrementScore={incrementScore}
         setGameOver= {handleGameOver}
         gameOver= {gameOver}
@@ -52,7 +66,6 @@ function App() {
       )}
       {gameOver && bestScore < 21 && (<IsGameOver
           restartGame={restartGame}
-
         /> 
       )}
       {bestScore===21 && (<WinGame

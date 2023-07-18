@@ -1,7 +1,8 @@
 import React, { useState, useEffect, Suspense } from "react";
 import catArray from "./imageRepo";
-import Card from './Card';
-//const Card = React.lazy(() => import('./Card'));
+import Loading from "./Loading"
+//import Card from './Card';
+const Card = React.lazy(() => import('./Card'));
 
 function Board(props) {
   const shuffledArray = catArray.slice();
@@ -26,7 +27,7 @@ function Board(props) {
 
   return (
     <div className="board" id="cardContainer">
-        <Suspense>{cards}</Suspense>
+        <Suspense fallback={<Loading />}>{cards}</Suspense>
     </div>
   );
 }
