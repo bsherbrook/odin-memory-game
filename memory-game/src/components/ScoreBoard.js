@@ -5,7 +5,7 @@ function ScoreBoard(props) {
   return (
     <div className="App">
       <h1>Score: {props.score}</h1>
-      <button onClick={props.displayCats}>Click Me!</button>
+      <h1>Best Score: {props.bestScore}</h1>
     </div>
   );
 }

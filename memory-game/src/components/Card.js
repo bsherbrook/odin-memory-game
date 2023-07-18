@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 
-function App() {
+const Card = (props) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    if (isClicked) {
+      props.setGameOver();
+    } else {
+      setIsClicked(true);
+      //const elemObj = { name: props.name };
+      //props.handleClickedElements(elemObj);
+      props.incrementScore();
+    }
+  };
+
   return (
-    <div className="App">
-      <div id="cardContainer"></div>
-      {/* <div id="card">
-        <div id="picBox">
-          <img id="catPic" src="./img/abyssinian.jpg" alt=""/>
-        </div>
-        <h4 id="catName"></h4>
-      </div> */}
+    <div className='card'>
+      <img className='catPic' onClick={handleClick} src={props.url} alt={props.name} />
+      <h4 className='catText'>{props.name}</h4>
     </div>
   );
-}
+};
 
-export default App;
+export default Card;

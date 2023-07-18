@@ -1,23 +1,32 @@
-import React, { useState, useEffect } from "react";
-import imgArray from "./imageRepo";
+import React, { useState, useEffect, Suspense } from "react";
+import catArray from "./imageRepo";
 // import Card from './Card';
 const Card = React.lazy(() => import('./Card'));
 
-function Board() {
-  const [clickedElements, setClickedElements] = useState([]);
-  const catArray= imgArray.map((arr) => arr.slice());
-  const handleClickedElements = (elem) => {
-    setClickedElements(clickedElements.concat(elem));
-  };
+function Board(props) {
+  //const [clickedElements, setClickedElements] = useState([]);
+  //const catArray= imgArray.map((arr) => arr.slice());
+//   const handleClickedElements = (elem) => {
+//     setClickedElements(clickedElements.concat(elem));
+//   };
 
-  const cleanClickedElements = () => {
-    setClickedElements([]);
-  };
-  let cards = imagesArray[index].map((obj) => {
+//   const cleanClickedElements = () => {
+//     setClickedElements([]);
+//   };
+  //catArray = _.shuffle(catArray);
+  const shuffledArray = catArray.slice();
+ 
+  let n = shuffledArray.length;
+  while (n > 0) {
+    const randomIndex = Math.floor(Math.random() * n);
+    [shuffledArray[n - 1], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[n - 1]];
+    n--;
+  }
+  let cards = shuffledArray.map((obj) => {
     return (
       <Card
         key={obj.text}
-        handleClickedElements={handleClickedElements}
+        //handleClickedElements={handleClickedElements}
         incrementScore={props.incrementScore}
         setGameOver={props.setGameOver}
         url={obj.image}
@@ -28,8 +37,8 @@ function Board() {
 
 
   return (
-    <div className="App">
-      
+    <div className="board" id="cardContainer">
+        <Suspense>{cards}</Suspense>
     </div>
   );
 }
