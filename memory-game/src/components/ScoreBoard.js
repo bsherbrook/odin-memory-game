@@ -6,6 +6,7 @@ function ScoreBoard(props) {
     <div className="App">
       <div id="scoreBoard">
         <h1>Score: {props.score}</h1>
+        <h1>Don't Forget A Kitty</h1>
         <h1>Best Score: {props.bestScore}</h1>
       </div>
     </div>

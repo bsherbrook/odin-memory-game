@@ -1,6 +1,6 @@
 html{
     color: white;
-    background-color: black;
+    background-color: rgb(24, 24, 25);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +10,7 @@ html{
     justify-content: space-around;
 }
 .card{
-    background-color: aqua;
+    background-color: rgb(116, 200, 246);
     display: flex;
     flex-direction: column;
     height: 250px;
@@ -24,17 +24,19 @@ html{
 }
 .catPic{
     height: 200px;
+    border-radius: 10px;
 }
 .catPic:hover{
     cursor: pointer;
 }
 #cardContainer{
-    background-color: darkblue;
+    background-color: rgb(200, 232, 249);
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 #gameOverCat{
     height: 600px;
